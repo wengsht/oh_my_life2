@@ -1,1 +1,0 @@
-/usr/bin/g++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/mylife.dir/CliMain.cpp.o CMakeFiles/mylife.dir/lib/Record.cpp.o CMakeFiles/mylife.dir/lib/DBm.cpp.o CMakeFiles/mylife.dir/lib/RecordPocket.cpp.o  -o mylife  -lsqlite3 
