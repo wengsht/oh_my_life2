@@ -1,0 +1,5 @@
+cmake_minimum_required (VERSION 2.6)
+project (oh-my-life)
+include_directories("./include")
+add_executable(mylife ./CliMain.cpp lib/Record.cpp lib/DBm.cpp lib/RecordPocket.cpp)
+target_link_libraries(mylife sqlite3)

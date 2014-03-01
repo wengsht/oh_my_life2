@@ -1,0 +1,14 @@
+#define COLUMN_ID   "id"
+#define COLUMN_NAME "name"
+#define COLUMN_YEAR "year"
+#define COLUMN_MONTH "month"
+#define COLUMN_DAY   "day"
+#define COLUMN_BEGIN_H "begin_h"
+#define COLUMN_BEGIN_M "begin_m"
+#define COLUMN_END_H "end_h"
+#define COLUMN_END_M "end_m"
+#define COLUMN_TAGS "tags"
+#define COLUMN_NUMS "nums"
+#define COLUMN_COMMENT "comment"
+
+#define COLUMN_ALLNAME_WITHOUT_ID COLUMN_NAME "," COLUMN_YEAR "," COLUMN_MONTH "," COLUMN_DAY   "," COLUMN_BEGIN_H "," COLUMN_BEGIN_M "," COLUMN_END_H "," COLUMN_END_M "," COLUMN_TAGS "," COLUMN_NUMS "," COLUMN_COMMENT
