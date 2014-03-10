@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 34;
+	objects = {
+		D7BA7D76DAB5DD13389D6332 = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			generatedFileNames = (
+				);
+			isa = PBXShellScriptBuildPhase;
+			name = "Qt Qmake";
+			neededFileNames = (
+				);
+			shellPath = "/bin/sh";
+			shellScript = "make\ -C\ /Users/wengsht/Program/oh-my-life2\ -f\ \'build/Makefile.pbproj/qt_makeqmake.mak\'";
+		};
+		CC164F98FA2CAEFFE6FFC38C = {
+			isa = PBXFileReference;
+			name = "QtMain.cpp";
+			path = "../../QtMain.cpp";
+			refType = 4;
+			sourceTree = "SOURCE_ROOT";
+		};
+		49C6CB524101ABB74F92BCF0 = {
+			fileRef = "CC164F98FA2CAEFFE6FFC38C";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		93F24E7D6502DFC14F9308D8 = {
+			isa = PBXFileReference;
+			name = "DBm.cpp";
+			path = "../../lib/DBm.cpp";
+			refType = 4;
+			sourceTree = "SOURCE_ROOT";
+		};
+		AB1C93886F09632C8AD6F08A = {
+			fileRef = "93F24E7D6502DFC14F9308D8";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		231B3AF0705079BD195A50AC = {
+			isa = PBXFileReference;
+			name = "Record.cpp";
+			path = "../../lib/Record.cpp";
+			refType = 4;
+			sourceTree = "SOURCE_ROOT";
+		};
+		19E81A0690EE33F0FCF5E73F = {
+			fileRef = "231B3AF0705079BD195A50AC";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		EEA55AE6856C91BF37A006E1 = {
+			isa = PBXFileReference;
+			name = "RecordPocket.cpp";
+			path = "../../lib/RecordPocket.cpp";
+			refType = 4;
+			sourceTree = "SOURCE_ROOT";
+		};
+		46178D34BBAA8E1B28B75374 = {
+			fileRef = "EEA55AE6856C91BF37A006E1";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		A6BB6E58CF10592700778EBE = {
+			isa = PBXFileReference;
+			name = "../oh-my-life2.pro";
+			path = "../oh-my-life2.pro";
+			refType = 4;
+			sourceTree = "SOURCE_ROOT";
+		};
+		BFA3A29D17FD123C907B6E35 = {
+			isa = PBXGroup;
+			children = (
+				"CC164F98FA2CAEFFE6FFC38C",
+				"4CE584EC8B44D64940D2C531");
+			name = "..";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		4CE584EC8B44D64940D2C531 = {
+			isa = PBXGroup;
+			children = (
+				"93F24E7D6502DFC14F9308D8",
+				"231B3AF0705079BD195A50AC",
+				"EEA55AE6856C91BF37A006E1");
+			name = "lib";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		FB61758D0F0FDA4BA867C3D5 = {
+			isa = PBXGroup;
+			children = (
+				"BFA3A29D17FD123C907B6E35");
+			name = "Sources";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		7CABE3C80E79AD2B307756D2 = {
+			isa = PBXGroup;
+			children = (
+				"A6BB6E58CF10592700778EBE");
+			name = "Sources [qmake]";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		A0A52A2ADF7A1E2A99738674 = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			generatedFileNames = (
+				"49C6CB524101ABB74F92BCF0",
+				"AB1C93886F09632C8AD6F08A",
+				"19E81A0690EE33F0FCF5E73F",
+				"46178D34BBAA8E1B28B75374");
+			isa = PBXShellScriptBuildPhase;
+			name = "Qt Preprocessors";
+			neededFileNames = (
+				"49C6CB524101ABB74F92BCF0",
+				"AB1C93886F09632C8AD6F08A",
+				"19E81A0690EE33F0FCF5E73F",
+				"46178D34BBAA8E1B28B75374");
+			shellPath = "/bin/sh";
+			shellScript = "make\ -C\ /Users/wengsht/Program/oh-my-life2\ -f\ \'build/Makefile.pbproj/qt_preprocess.mak\'";
+		};
+		C29B8785722055ED95EF7B57 = {
+			buildActionMask = 2147483647;
+			files = (
+				"49C6CB524101ABB74F92BCF0",
+				"AB1C93886F09632C8AD6F08A",
+				"19E81A0690EE33F0FCF5E73F",
+				"46178D34BBAA8E1B28B75374");
+			isa = PBXSourcesBuildPhase;
+			name = "Build Sources";
+		};
+		9B36DA7E32F0304E780E7972 = {
+			isa = PBXFileReference;
+			name = "QtGui.framework";
+			path = "/Library/Frameworks/QtGui.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		501667F26B3C1FF6767A7C12 = {
+			fileRef = "9B36DA7E32F0304E780E7972";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7BC2E65A5E699A5E5D834CA2 = {
+			isa = PBXFileReference;
+			name = "QtCore.framework";
+			path = "/Library/Frameworks/QtCore.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		069D05B0128AE5DC7EE31738 = {
+			fileRef = "7BC2E65A5E699A5E5D834CA2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		ED1E82605DD74B483AF3C982 = {
+			children = (
+				"9B36DA7E32F0304E780E7972",
+				"7BC2E65A5E699A5E5D834CA2");
+			isa = PBXGroup;
+			name = "External Frameworks and Libraries";
+			path = "";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		2A1043669E6E5A7426EA502A = {
+			buildActionMask = 2147483647;
+			files = (
+				"501667F26B3C1FF6767A7C12",
+				"069D05B0128AE5DC7EE31738");
+			isa = PBXFrameworksBuildPhase;
+			name = "Frameworks & Libraries";
+		};
+		3787F99312C85FF0073FD7BA = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXResourcesBuildPhase;
+			name = "Bundle Resources";
+		};
+		05596AB53D8D521C69802C27 = {
+			children = (
+				"FB61758D0F0FDA4BA867C3D5",
+				"7CABE3C80E79AD2B307756D2",
+				"ED1E82605DD74B483AF3C982");
+			isa = PBXGroup;
+			name = "oh-my-life2";
+			path = "";
+			refType = 4;
+			sourceTree = "<Group>";
+		};
+		4B53453ED85027A66CB0D822 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.application";
+			path = "oh-my-life2.app";
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		068F80C7519D0528FB08E821 = {
+			children = (
+				"4B53453ED85027A66CB0D822");
+			isa = PBXGroup;
+			name = "Products";
+			refType = 4;
+		};
+		AD7D69904D21EEF4340C0074 = {
+			buildPhases = (
+				"D7BA7D76DAB5DD13389D6332",
+				"A0A52A2ADF7A1E2A99738674",
+				"C29B8785722055ED95EF7B57",
+				"2A1043669E6E5A7426EA502A",
+				"3787F99312C85FF0073FD7BA");
+			buildSettings = {
+				CC = "/usr/bin/gcc";
+				CPLUSPLUS = "/usr/bin/g++";
+				HEADER_SEARCH_PATHS = (
+					"/Library/Frameworks/QtCore.framework/Versions/4/Headers",
+					"/usr/include/QtCore",
+					"/Library/Frameworks/QtGui.framework/Versions/4/Headers",
+					"/usr/include/QtGui",
+					"/usr/include",
+					"../include",
+					".",
+					"../../oh-my-life2",
+					"/usr/local/include",
+					"/System/Library/Frameworks/CarbonCore.framework/Headers",
+					".",
+					"/usr/local/Qt4.8/mkspecs/macx-xcode");
+				LIBRARY_SEARCH_PATHS = (
+					"/Library/Frameworks");
+				OPTIMIZATION_CFLAGS = (
+					);
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED");
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED");
+				LEXFLAGS = "";
+				YACCFLAGS = "-d";
+				OTHER_REZFLAGS = "";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				PREBINDING = NO;
+				INFOPLIST_FILE = "Info.plist";
+				BUILD_ROOT = "/Users/wengsht/Program/oh-my-life2";
+				OTHER_LDFLAGS = (
+						"-headerpad_max_install_names",
+						"-L/Library/Frameworks",
+						"-F/Library/Frameworks");
+				DYLIB_CURRENT_VERSION = "1.0.0";
+				DYLIB_COMPATIBILITY_VERSION = "1.0";
+				MACOSX_DEPLOYMENT_TARGET = "10.4";
+				ARCHS = "x86_64";
+				WRAPPER_SUFFIX = "app";
+				PRODUCT_NAME = "oh-my-life2";
+			};
+			conditionalBuildSettings = {
+			};
+			dependencies = (
+				);
+			productReference = "4B53453ED85027A66CB0D822";
+			shouldUseHeadermap = 1;
+			isa = PBXApplicationTarget;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">
+<plist version=\"0.9\">
+<dict>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+ 	<key>CFBundleGetInfoString</key>
+	<string>Created by Qt/QMake</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleExecutable</key>
+	<string>oh-my-life2</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.yourcompany.oh-my-life2</string>
+	<key>NOTE</key>
+	<string>This file was generated by Qt/QMake.</string>
+</dict>
+</plist>
+";
+			name = "oh-my-life2";
+			productName = "oh-my-life2";
+			startupPath = "<<ProjectDirectory>>";
+		};
+		91B15E841AA80083484172DE = {
+			buildStyles = (
+				);
+			hasScannedForEncodings = 1;
+			isa = PBXProject;
+			mainGroup = "05596AB53D8D521C69802C27";
+			projectDirPath = "";
+			targets = (
+				"AD7D69904D21EEF4340C0074");
+		};
+	};
+	rootObject = "91B15E841AA80083484172DE";
+}
