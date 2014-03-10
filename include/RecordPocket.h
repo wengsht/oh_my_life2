@@ -9,6 +9,8 @@ using namespace std;
 class RecordPocket {
     public:
         RecordPocket(int year, int mon, int day, int day_interval);
+        
+        void resetDate(int year, int mon, int day, int day_interval);
 
         int recordSize() const;
         Record &getRecord(int I);
@@ -23,8 +25,11 @@ class RecordPocket {
         int getEndMonth() const;
         int getEndDay() const;
 
-        void addRecord(const Record &record);
+        void addRecord(Record &record);
+        void removeRecord(int index);
         void clear();
+
+        pair<int, int> getLatestHM() const;
 
         Record& operator [](int I);
 

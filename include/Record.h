@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <set>
 using namespace std;
 #include "ctime"
 
@@ -60,7 +61,7 @@ class Record {
         int id;
         string name;
         struct tm begin_time, end_time;
-        vector<string> tags;
+        set<string> tags;
         double nums;
         string comment;
 };

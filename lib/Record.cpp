@@ -5,19 +5,20 @@
 
 using namespace std;
 
-Record::Record() {
+Record::Record() : name(""), tags(), comment("nothing"), nums(1.0) {
     memset(&begin_time, 0, sizeof(begin_time));
     memset(&end_time, 0, sizeof(end_time));
 }
 
 void Record::initTags(string tags) {
+    (this->tags).clear();
     int I = 0;
     do {
         if(!tags.length())  break;
 
         I = tags.find("&");
 
-        (this->tags).push_back(tags.substr(0, I));
+        (this->tags).insert(tags.substr(0, I));
 
         if(I == -1)
             tags = "";
@@ -136,15 +137,15 @@ bool Record::hasTag(string tag) {
 }
 void Record::addTag(string tag) {
     if(!hasTag(tag))
-        tags.push_back(tag);
+        tags.insert(tag);
 }
 string Record::getTagsAsString() const{
     string res = "";
-    if(tags.size()) 
-        res = tags[0];
-    for(int I = 1; I < tags.size(); I++){
-        res += "&";
-        res += tags[I];
+    set<string>::iterator J = tags.begin();
+    for(;J != tags.end(); J++){
+        if(J != tags.begin())
+            res += "&";
+        res += *J;
     }
     return res;
 }

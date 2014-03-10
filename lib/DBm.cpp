@@ -14,6 +14,15 @@ string DBm::getInsertHead() {
     res += ") ";
     return res;
 }
+string DBm::getNameCond(const string &name) {
+    string res = "";
+    res += COLUMN_NAME;
+    res += " == \"";
+    res += name;
+    res += "\"";
+
+    return res;
+}
 string DBm::getYMDCondString(int y, int m, int d) {
     stringstream out;
     out << " " << COLUMN_YEAR << " == " << y << " and "<< COLUMN_MONTH << " == " << m << " and " << COLUMN_DAY << " == " << d;
@@ -21,6 +30,15 @@ string DBm::getYMDCondString(int y, int m, int d) {
 }
 string DBm::getDeleteHead() {
     string res = "delete from ";
+    res += tableName;
+    res += " where ";
+
+    return res;
+}
+string DBm::getSelectTagsHead() {
+    string res = "select ";
+    res += COLUMN_TAGS;
+    res += " from ";
     res += tableName;
     res += " where ";
 
@@ -97,6 +115,15 @@ bool DBm::updateDayRecord(RecordPocket &records) {
     return true;
 }
 
+int DBm::getTagsCallBack(void *data, int nColumn, char **col_values, char **col_names) {
+    string *str = (string *) data;
+
+    if(nColumn != 1) return 0;
+    if(strcmp(col_names[0], COLUMN_TAGS) != 0) return 0;
+    *str = col_values[0];
+
+    return 0;
+}
 int DBm::readRecordCallBack(void *data, int nColumn, char **col_values, char **col_names) {
     RecordPocket * records = (RecordPocket *)data;
 
@@ -124,7 +151,7 @@ int DBm::readRecordCallBack(void *data, int nColumn, char **col_values, char **c
         BRANCH_INT(COLUMN_END_M, setEndM)
         BRANCH_STR(COLUMN_TAGS, initTags)
         else if(0 == strcmp(COLUMN_NUMS, col_names[I])) {
-            newRecord.setNums(atof(col_names[I]));
+            newRecord.setNums(atof(col_values[I]));
         }
         BRANCH_STR(COLUMN_COMMENT, setComment)
     }
@@ -132,6 +159,23 @@ int DBm::readRecordCallBack(void *data, int nColumn, char **col_values, char **c
     records->addRecord(newRecord);
 
     return 0;
+}
+bool DBm::getTagsStringByName(const string &name, string &tags) {
+    string sqlStr = "";
+    string selectHead = getSelectTagsHead();
+    string nameCond  = getNameCond(name);
+    sqlStr = selectHead + nameCond;
+
+    char *zr;
+    int rc = sqlite3_exec(db, sqlStr.c_str(), &getTagsCallBack, &tags, &zr);
+
+
+    if(rc) {
+        cout << "select bug" << endl;
+
+        return false;
+    }
+    return true;
 }
 bool DBm::readInRecordPocket(RecordPocket &records) {
     records.clear();

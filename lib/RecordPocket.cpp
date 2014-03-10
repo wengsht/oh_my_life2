@@ -1,9 +1,10 @@
 #include "RecordPocket.h"
 #include "assert.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
-RecordPocket::RecordPocket(int year, int mon, int day, int day_interval) : records() , day_interval(day_interval) {
+void RecordPocket::resetDate(int year, int mon, int day, int day_interval) {
     begin_time.tm_year = year - 1900;
     begin_time.tm_mon  = mon - 1;
     begin_time.tm_mday = day;
@@ -19,13 +20,19 @@ RecordPocket::RecordPocket(int year, int mon, int day, int day_interval) : recor
 
     end_time = *localtime(&begin);
 }
+RecordPocket::RecordPocket(int year, int mon, int day, int day_interval) : records() , day_interval(day_interval) {
+    resetDate(year, mon, day, day_interval);
+}
 int RecordPocket::recordSize() const {
     return records.size();
 }
 Record &RecordPocket::getRecord(int I) {
     return records[I];
 }
-void RecordPocket::addRecord(const Record &record) {
+void RecordPocket::removeRecord(int index) {
+    records.erase(records.begin() + index);
+}
+void RecordPocket::addRecord(Record &record) {
     records.push_back(record);
 }
 void RecordPocket::clear() {
@@ -64,4 +71,16 @@ Record &RecordPocket::getRecordById(int id) {
 
 Record& RecordPocket::operator [](int I) {
     return getRecord(I);
+}
+
+pair<int, int> RecordPocket::getLatestHM() const {
+    int h = 0, m = 0;
+
+    for(int I = 0;I < recordSize(); I++) {
+        if(records[I].getEndH() > h || records[I].getEndH() == h && records[I].getEndM() >= m) {
+            h = records[I].getEndH();
+            m = records[I].getEndM();
+        }
+    }
+    return make_pair(h, m);
 }
