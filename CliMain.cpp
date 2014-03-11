@@ -6,7 +6,7 @@
 #include "iostream" 
 using namespace std;
 
-#define CODING
+//#define CODING
 
 #ifdef CODING
 int f(void *msg, int cn, char **column_string, char **column_title) {
