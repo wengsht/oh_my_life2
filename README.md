@@ -11,8 +11,9 @@ for test, you can:
 
 1. install QT
 
-2. use include/SQLITE.sql to build the table in your sqlite3. and then:
 
+2. use include/SQLITE.sql to build the table in your database(Call it life.db below) with sqlite3. and then:
+ 
 3. build oh-my-life2:
 ```
     cd src/
@@ -20,7 +21,10 @@ for test, you can:
     cd build
     qmake ../ (for mac, qmake -spec macx-g++ ../)
     make 
+    touch .oh-my-life
+    echo '/path/to/life.db' > .oh-my-life
 ```
+
     
 ### nowon
 

@@ -3,11 +3,16 @@
 #include <QHBoxLayout>
 #include <iostream>
 #include <QMessageBox>
+#include <QIODevice>
+#include <QTextStream>
 #include <QString>
 #include <QPalette>
 #include <QColor>
+#include <fstream>
 #include "RecordWidget.h"
 #include "StatisWidget.h"
+#include <QFile>
+#include <QDataStream>
 #include "QT.def"
 
 using namespace std;
@@ -68,7 +73,23 @@ OmlMainWindow::OmlMainWindow() {
     palette.setBrush(QPalette::Background,QBrush(pixmap));
     setPalette(palette);
 
-    db = new DBm("/Users/wengsht/Program/oh-my-life2/build/life.db", "life");
+    /*  
+    QString dbPath;
+    QFile profile("~/.oh-my-life");
+    profile.open(QIODevice::ReadOnly);
+    QTextStream in(&profile);
+    in >> dbPath;
+    profile.close();
+    */
+
+    string dbPath;
+    ifstream in("./.oh-my-life");
+    in >> dbPath;
+
+    if(dbPath.length() == 0)
+        dbPath = "~/life.db";
+    
+    db = new DBm(dbPath.c_str(), "life");
 
     QWidget *widget = new QWidget();
     setCentralWidget(widget);
