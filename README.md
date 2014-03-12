@@ -21,10 +21,14 @@ for test, you can:
     cd build
     qmake ../ (for mac, qmake -spec macx-g++ ../)
     make 
-    touch .oh-my-life
-    echo '/path/to/life.db' > .oh-my-life
+    
 ```
 
+4. db setting.
+
+It will ask you to input the /path/to/sqlitedb/file first time. If you want to change after.
+
+You can edit the file `.oh-my-life` in the app path. (mac is in oh-my-life2.app/Contents/MacOS)
     
 ### nowon
 
