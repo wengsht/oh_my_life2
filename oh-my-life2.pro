@@ -23,3 +23,6 @@ LIBS += -lsqlite3
 
 RESOURCES += QtSource.qrc
 CONFIG += qt
+
+macx:ICON = ./images/face.icns
+ICON = ./images/face.icns

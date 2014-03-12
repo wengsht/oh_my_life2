@@ -206,12 +206,18 @@ bool DBm::readInRecordPocket(RecordPocket &records) {
 DBm::DBm(string dbPath, string table) : dbPath(dbPath), tableName(table) {
     int rc = sqlite3_open(dbPath.c_str(), &db);
 
-    if(0 != rc) {
+    opened = true;
+
+    if(SQLITE_OK != rc) {
         // ERROF
         cout << "open sqlite3 fail" << endl;
+        opened = false;
     }
 }
 
 DBm::~DBm() {
     sqlite3_close(db);
+}
+bool DBm::opening() {
+    return opened;
 }

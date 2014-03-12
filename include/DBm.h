@@ -17,6 +17,8 @@ class DBm {
         bool readInRecordPocket(RecordPocket &records);
 
         bool getTagsStringByName(const string &name, string &tags);
+
+        bool opening();
         ~DBm();
     private:
         static int readRecordCallBack(void *data, int nColumn, char **col_values, char **col_names);
@@ -32,6 +34,8 @@ class DBm {
         string dbPath;
         string tableName;
         sqlite3 *db;
+
+        bool opened;
 
 };
 #endif

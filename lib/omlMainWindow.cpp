@@ -1,7 +1,10 @@
 #include "omlMainWindow.h"
+#include <QInputDialog>
 #include <QWidget>
 #include <QHBoxLayout>
+#include <QApplication>
 #include <iostream>
+#include <QIcon>
 #include <QMessageBox>
 #include <QIODevice>
 #include <QTextStream>
@@ -83,13 +86,29 @@ OmlMainWindow::OmlMainWindow() {
     */
 
     string dbPath;
-    ifstream in("./.oh-my-life");
+    string extPath = QApplication::applicationDirPath().toStdString();
+    extPath += "/.oh-my-life";
+    ifstream in(extPath.c_str());
+//    ifstream in("./profile");
     in >> dbPath;
+    in.close();
 
-    if(dbPath.length() == 0)
-        dbPath = "~/life.db";
-    
     db = new DBm(dbPath.c_str(), "life");
+
+    while(dbPath.length() == 0 || db->opening() == false) {
+        delete db;
+        bool isOK;
+        dbPath = QInputDialog::getText(this, "设置数据库路径", 
+                "请输入数据库路径", 
+                QLineEdit::Normal, 
+                "null", 
+                &isOK).toStdString(); 
+//        dbPath = "/Users/wengsht/life.db"; // it is for test
+        ofstream out(extPath.c_str());
+        out << dbPath;
+        out.close();
+        db = new DBm(dbPath.c_str(), "life");
+    }
 
     QWidget *widget = new QWidget();
     setCentralWidget(widget);
@@ -119,3 +138,4 @@ OmlMainWindow::OmlMainWindow() {
 }
 OmlMainWindow::~OmlMainWindow() {
 }
+
